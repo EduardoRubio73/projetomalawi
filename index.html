@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nação Ubuntu Malawi — Doe Saúde</title>
+<meta name="description" content="A Caravana da Saúde 2026 levará medicamentos e atendimento médico para comunidades vulneráveis no Malawi.">
+<meta property="og:title" content="Nação Ubuntu Malawi — Doe Saúde">
+<meta property="og:description" content="Doe medicamentos ou faça uma contribuição financeira. Sua ajuda salva vidas no Malawi.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1200&auto=format&fit=crop">
+<link rel="icon" type="image/png" sizes="32x32" href="./public/icons/icon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./public/icons/icon-16x16.png">
+<link rel="apple-touch-icon" href="./public/icons/icon-180x180.png">
+<link rel="manifest" href="./manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --purple: #3d0070;
+  --purple-light: #5c0fa3;
+  --orange: #f55d00;
+  --orange-light: #ff7a25;
+  --gold: #f5c518;
+  --green: #0a7a3c;
+  --green-light: #0d9e4e;
+  --bg: #faf8f5;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --white: #ffffff;
+  --card-bg: #ffffff;
+  --radius: 20px;
+  --radius-sm: 12px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+.container {
+  width:100%;
+  max-width:1160px;
+  margin:auto;
+  padding:0 24px;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:100;
+  padding:0 24px;
+  background:rgba(61,0,112,0.92);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-inner {
+  max-width:1160px;
+  margin:auto;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.nav-logo-icon {
+  width:36px;
+  height:36px;
+  background:var(--orange);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  list-style:none;
+}
+
+.nav-links a {
+  color:rgba(255,255,255,0.75);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:500;
+  padding:8px 14px;
+  border-radius:8px;
+  transition:all 0.2s;
+}
+
+.nav-links a:hover { color:#fff; background:rgba(255,255,255,0.1); }
+
+.nav-cta {
+  background:var(--orange) !important;
+  color:#fff !important;
+  padding:8px 18px !important;
+  border-radius:10px !important;
+  font-weight:600 !important;
+}
+
+.nav-cta:hover { background:var(--orange-light) !important; transform:none !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  padding-top:64px;
+  background: linear-gradient(135deg, rgba(61,0,112,0.96) 0%, rgba(30,0,60,0.98) 100%),
+              url('https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1800&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(245,93,0,0.15) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero-inner {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+  padding:80px 0;
+}
+
+.hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(245,93,0,0.2);
+  border:1px solid rgba(245,93,0,0.4);
+  color:#ffb380;
+  padding:8px 18px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.04em;
+  margin-bottom:28px;
+}
+
+.hero h1 {
+  font-family:'Playfair Display', serif;
+  font-size:68px;
+  font-weight:900;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:24px;
+  letter-spacing:-1px;
+}
+
+.hero h1 span { color:var(--gold); }
+
+.hero-desc {
+  font-size:18px;
+  color:rgba(255,255,255,0.75);
+  max-width:480px;
+  margin-bottom:40px;
+  font-weight:300;
+}
+
+.hero-actions {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:16px 28px;
+  border-radius:var(--radius-sm);
+  text-decoration:none;
+  font-weight:700;
+  font-size:15px;
+  transition:all 0.2s;
+  cursor:pointer;
+  border:none;
+  font-family:'DM Sans', sans-serif;
+}
+
+.btn-primary {
+  background:var(--orange);
+  color:#fff;
+  box-shadow:0 8px 24px rgba(245,93,0,0.35);
+}
+
+.btn-primary:hover { background:var(--orange-light); transform:translateY(-2px); box-shadow:0 12px 32px rgba(245,93,0,0.45); }
+
+.btn-outline {
+  background:transparent;
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.3);
+}
+
+.btn-outline:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.6); }
+
+.hero-visual {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.hero-stats {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.hero-stat {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);
+  padding:24px;
+  text-align:center;
+  backdrop-filter:blur(8px);
+}
+
+.hero-stat h3 {
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.hero-stat p { font-size:12px; color:rgba(255,255,255,0.6); font-weight:500; text-transform:uppercase; letter-spacing:0.06em; }
+
+.hero-img {
+  border-radius:var(--radius);
+  overflow:hidden;
+  height:180px;
+}
+
+.hero-img img { width:100%; height:100%; object-fit:cover; }
+
+/* ── SECTIONS ── */
+section { padding:96px 0; }
+
+.section-label {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--orange);
+  margin-bottom:16px;
+}
+
+.section-title {
+  font-family:'Playfair Display', serif;
+  font-size:48px;
+  font-weight:900;
+  color:var(--purple);
+  line-height:1.1;
+  margin-bottom:16px;
+}
+
+.section-sub {
+  font-size:18px;
+  color:var(--text-muted);
+  max-width:640px;
+  font-weight:300;
+}
+
+/* ── ABOUT ── */
+.about { background:#fff; }
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
+  margin-top:60px;
+}
+
+.about-image {
+  position:relative;
+}
+
+.about-image img {
+  border-radius:var(--radius);
+  box-shadow:0 24px 60px rgba(61,0,112,0.15);
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.about-image-badge {
+  position:absolute;
+  bottom:-20px;
+  right:-20px;
+  background:var(--orange);
+  color:#fff;
+  padding:20px 24px;
+  border-radius:var(--radius);
+  font-weight:700;
+  font-size:14px;
+  box-shadow:0 8px 24px rgba(245,93,0,0.4);
+  text-align:center;
+}
+
+.about-image-badge strong { display:block; font-size:32px; font-family:'Playfair Display',serif; }
+
+.cards-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.card {
+  background:var(--bg);
+  border-radius:var(--radius);
+  padding:24px;
+  border:1px solid rgba(0,0,0,0.05);
+  transition:all 0.2s;
+}
+
+.card:hover { transform:translateY(-4px); box-shadow:0 12px 30px rgba(61,0,112,0.1); }
+
+.card-icon {
+  width:44px;
+  height:44px;
+  background:rgba(61,0,112,0.1);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.card h3 {
+  font-size:15px;
+  font-weight:700;
+  color:var(--purple);
+  margin-bottom:8px;
+}
+
+.card p { font-size:14px; color:var(--text-muted); }
+
+/* ── STATS ── */
+.stats {
+  background:linear-gradient(135deg, var(--purple) 0%, #1e003c 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.stats::before {
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-10%;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle, rgba(245,93,0,0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.stats-header { text-align:center; margin-bottom:60px; }
+.stats .section-title { color:#fff; }
+.stats .section-sub { color:rgba(255,255,255,0.65); margin:0 auto; }
+
+.stats-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.stat-card {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);
+  padding:36px 24px;
+  text-align:center;
+}
+
+.stat-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:var(--gold);
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.stat-card p { font-size:13px; color:rgba(255,255,255,0.65); font-weight:500; }
+
+/* ── MEDS ── */
+.meds { background:var(--bg); }
+
+.meds-header { margin-bottom:48px; }
+
+.meds-search {
+  margin-top:16px;
+  position:relative;
+  max-width:420px;
+}
+
+.meds-search input {
+  width:100%;
+  padding:14px 18px 14px 44px;
+  border:1.5px solid rgba(0,0,0,0.1);
+  border-radius:var(--radius-sm);
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  background:#fff;
+  color:var(--text);
+  outline:none;
+  transition:border-color 0.2s;
+}
+
+.meds-search input:focus { border-color:var(--purple-light); }
+
+.meds-search-icon {
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#aaa;
+  font-size:16px;
+}
+
+.meds-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.med-item {
+  background:#fff;
+  border-radius:var(--radius);
+  padding:20px 22px;
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  border:1px solid rgba(0,0,0,0.05);
+  transition:all 0.2s;
+}
+
+.med-item:hover { border-color:var(--orange); transform:translateX(4px); }
+
+.med-num {
+  min-width:40px;
+  height:40px;
+  background:var(--purple);
+  color:#fff;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+.med-text h4 {
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:4px;
+}
+
+.med-text p { font-size:12px; color:var(--text-muted); line-height:1.5; }
+
+.med-item.hidden { display:none; }
+
+/* ── UBUNTU QUOTE ── */
+.ubuntu-section {
+  background:linear-gradient(135deg, rgba(61,0,112,0.95) 0%, rgba(20,0,50,0.97) 100%),
+             url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=1600&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+}
+
+.ubuntu-section .section-title { color:#fff; margin:0 auto 20px; }
+
+blockquote {
+  font-family:'Playfair Display',serif;
+  font-size:30px;
+  max-width:800px;
+  margin:0 auto 24px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.9);
+  font-style:italic;
+}
+
+.ubuntu-section p {
+  font-size:18px;
+  color:rgba(255,255,255,0.7);
+  max-width:700px;
+  margin:0 auto;
+  font-weight:300;
+}
+
+/* ── DONATION ── */
+.donation { background:#fff7ef; }
+
+.donation-inner {
+  max-width:860px;
+  margin:auto;
+}
+
+.donation-title-area {
+  text-align:center;
+  margin-bottom:48px;
+}
+
+.donation-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+/* Contact box — Izabel */
+.contact-box {
+  background:linear-gradient(135deg, var(--green) 0%, #065a2c 100%);
+  color:#fff;
+  border-radius:24px;
+  padding:36px;
+  position:relative;
+  overflow:hidden;
+}
+
+.contact-box::before {
+  content:'';
+  position:absolute;
+  top:-30px; right:-30px;
+  width:120px; height:120px;
+  background:rgba(255,255,255,0.06);
+  border-radius:50%;
+}
+
+.contact-label {
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:8px;
+}
+
+.contact-box h3 {
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  margin-bottom:6px;
+}
+
+.contact-name {
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.contact-phone-display {
+  font-size:18px;
+  color:rgba(255,255,255,0.8);
+  margin-bottom:24px;
+  font-weight:400;
+}
+
+.btn-whatsapp {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:var(--radius-sm);
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  transition:all 0.2s;
+  width:100%;
+  justify-content:center;
+  box-shadow:0 6px 20px rgba(37,211,102,0.35);
+}
+
+.btn-whatsapp:hover { background:#20c05a; transform:translateY(-2px); }
+
+.btn-whatsapp svg { width:20px; height:20px; fill:#fff; }
+
+.contact-note {
+  font-size:12px;
+  color:rgba(255,255,255,0.6);
+  margin-top:12px;
+  text-align:center;
+}
+
+/* Pix box — Ricardo */
+.pix-box {
+  background:linear-gradient(135deg, var(--purple) 0%, #1e003c 100%);
+  color:#fff;
+  border-radius:24px;
+  padding:36px;
+  position:relative;
+  overflow:hidden;
+}
+
+.pix-box::before {
+  content:'';
+  position:absolute;
+  bottom:-40px; left:-40px;
+  width:140px; height:140px;
+  background:rgba(245,197,24,0.08);
+  border-radius:50%;
+}
+
+.pix-box h3 {
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  margin-bottom:6px;
+}
+
+.pix-recipient {
+  font-size:14px;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:20px;
+}
+
+.pix-key-area {
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(245,197,24,0.25);
+  border-radius:var(--radius-sm);
+  padding:20px;
+  margin-bottom:16px;
+}
+
+.pix-key-label { font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:6px; }
+
+.pix-key-value {
+  font-size:28px;
+  font-weight:900;
+  color:var(--gold);
+  font-family:'Playfair Display',serif;
+  letter-spacing:1px;
+}
+
+.btn-copy {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--gold);
+  color:#1a1a1a;
+  padding:14px 22px;
+  border-radius:var(--radius-sm);
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  transition:all 0.2s;
+  width:100%;
+  justify-content:center;
+  border:none;
+  font-family:'DM Sans',sans-serif;
+}
+
+.btn-copy:hover { background:#f0c000; transform:translateY(-2px); }
+
+.btn-copy.copied {
+  background:#25D366;
+  color:#fff;
+}
+
+.btn-copy svg { width:18px; height:18px; }
+
+.pix-help { font-size:12px; color:rgba(255,255,255,0.5); margin-top:12px; text-align:center; }
+
+/* ── CTA ── */
+.cta-section {
+  background:var(--orange);
+  color:#fff;
+  text-align:center;
+  padding:80px 0;
+}
+
+.cta-section h2 {
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+  font-weight:900;
+  margin-bottom:16px;
+  line-height:1.1;
+}
+
+.cta-section p {
+  font-size:18px;
+  max-width:600px;
+  margin:0 auto 36px;
+  color:rgba(255,255,255,0.85);
+  font-weight:300;
+}
+
+.btn-white {
+  background:#fff;
+  color:var(--orange);
+}
+
+.btn-white:hover { background:rgba(255,255,255,0.9); transform:translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background:#0f0f0f;
+  color:#fff;
+  padding:48px 24px;
+  text-align:center;
+}
+
+.footer-inner { max-width:600px; margin:auto; }
+
+.footer-logo {
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+footer p { color:rgba(255,255,255,0.5); font-size:14px; margin-bottom:8px; }
+
+.footer-quote {
+  font-style:italic;
+  color:var(--gold) !important;
+  font-size:16px !important;
+  margin-top:16px !important;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px) {
+  .hero h1 { font-size:52px; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:768px) {
+  nav { padding:0 16px; }
+  .nav-links { display:none; }
+
+  .hero-inner { grid-template-columns:1fr; gap:40px; padding:60px 0; }
+  .hero-visual { display:none; }
+  .hero h1 { font-size:40px; }
+  .hero-desc { font-size:16px; }
+
+  .section-title { font-size:34px; }
+
+  .about-grid { grid-template-columns:1fr; gap:40px; }
+  .about-image-badge { right:0; bottom:-16px; }
+
+  .cards-grid { grid-template-columns:1fr; }
+
+  .stats-grid { grid-template-columns:1fr 1fr; }
+
+  .meds-grid { grid-template-columns:1fr; }
+
+  .donation-grid { grid-template-columns:1fr; }
+
+  .cta-section h2 { font-size:34px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">🌍</div>
+      Nação Ubuntu
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#medicamentos">Medicamentos</a></li>
+      <li><a href="#doacao" class="nav-cta">Quero Ajudar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          🌍 Projeto Voluntário — Malawi, África
+        </div>
+        <h1>
+          Doe <span>Saúde.</span><br>
+          Doe Esperança.
+        </h1>
+        <p class="hero-desc">
+          A Caravana da Saúde 2026 levará medicamentos, atendimento médico e dignidade para adultos e crianças em situação de vulnerabilidade social no Malawi.
+        </p>
+        <div class="hero-actions">
+          <a href="#doacao" class="btn btn-primary">
+            ❤️ Quero Ajudar
+          </a>
+          <a href="#medicamentos" class="btn btn-outline">
+            Ver lista de medicamentos
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>+56mil</h3>
+            <p>Refugiados em Dzaleka</p>
+          </div>
+          <div class="hero-stat">
+            <h3>8mil</h3>
+            <p>Atendimentos médicos</p>
+          </div>
+          <div class="hero-stat">
+            <h3>+70mil</h3>
+            <p>Refeições por mês</p>
+          </div>
+          <div class="hero-stat">
+            <h3>250</h3>
+            <p>Casas construídas</p>
+          </div>
+        </div>
+        <div class="hero-img">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop" alt="Crianças Malawi">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="section-label">✦ Conheça o projeto</div>
+    <h2 class="section-title">O Projeto Nação Ubuntu</h2>
+    <p class="section-sub">Assistência humanitária, alimentação, educação e saúde para comunidades vulneráveis no Malawi.</p>
+
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop" alt="Voluntários">
+        <div class="about-image-badge">
+          <strong>2026</strong>
+          Caravana da Saúde
+        </div>
+      </div>
+
+      <div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">🏥</div>
+            <h3>Saúde Humanitária</h3>
+            <p>Consultas médicas, distribuição de medicamentos e atendimento à população vulnerável.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">👨‍👩‍👧</div>
+            <h3>Apoio Social</h3>
+            <p>Atendimento a crianças, famílias e refugiados em situação crítica.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🌱</div>
+            <h3>Esperança Real</h3>
+            <p>Cada doação representa cuidado, dignidade e transformação de vidas.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🤝</div>
+            <h3>Filosofia Ubuntu</h3>
+            <p>"Eu sou porque nós somos." Solidariedade e cuidado coletivo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-header">
+      <div class="section-label" style="color:var(--gold);">✦ Números que importam</div>
+      <h2 class="section-title">Impacto Humanitário</h2>
+      <p class="section-sub">Resultados reais de anos de trabalho voluntário no Malawi.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>+56 mil</h3>
+        <p>Refugiados na região de Dzaleka</p>
+      </div>
+      <div class="stat-card">
+        <h3>8 mil</h3>
+        <p>Atendimentos médicos realizados</p>
+      </div>
+      <div class="stat-card">
+        <h3>+70 mil</h3>
+        <p>Refeições distribuídas mensalmente</p>
+      </div>
+      <div class="stat-card">
+        <h3>250</h3>
+        <p>Casas construídas para famílias</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDS -->
+<section class="meds" id="medicamentos">
+  <div class="container">
+    <div class="meds-header">
+      <div class="section-label">✦ Doação de medicamentos</div>
+      <h2 class="section-title">Lista de Medicamentos</h2>
+      <p class="section-sub">Aceitamos medicamentos dentro do prazo de validade e amostras de representantes laboratoriais.</p>
+      <div class="meds-search">
+        <span class="meds-search-icon">🔍</span>
+        <input type="text" id="medSearch" placeholder="Buscar medicamento..." oninput="filterMeds(this.value)">
+      </div>
+    </div>
+
+    <div class="meds-grid" id="medsGrid">
+
+      <div class="med-item" data-name="antibióticos amoxicilina azitromicina cefalexina levofloxacino ciprofloxacino ceftriaxone metronidazol">
+        <div class="med-num">1</div>
+        <div class="med-text">
+          <h4>💊 Antibióticos</h4>
+          <p>Amoxicilina, azitromicina, amox. + clavulanato, cefalexina, levofloxacino, ciprofloxacino, ceftriaxone, metronidazol.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="analgésicos paracetamol dipirona trometamol tramadol">
+        <div class="med-num">2</div>
+        <div class="med-text">
+          <h4>💉 Analgésicos</h4>
+          <p>Paracetamol, dipirona, trometamol, tramadol.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="anti-inflamatórios ibuprofeno nimesulida cetoprofeno celecoxibe diclofenaco etodolaco">
+        <div class="med-num">3</div>
+        <div class="med-text">
+          <h4>🩺 Anti-inflamatórios</h4>
+          <p>Ibuprofeno, nimesulida, cetoprofeno, celecoxibe, diclofenaco, etodolaco.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="broncodilatadores spray nasal oral">
+        <div class="med-num">4</div>
+        <div class="med-text">
+          <h4>🫁 Broncodilatadores</h4>
+          <p>Medicamentos para uso oral e spray nasal.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antitussígenos tosse">
+        <div class="med-num">5</div>
+        <div class="med-text">
+          <h4>😷 Antitussígenos</h4>
+          <p>Medicamentos em geral para tosse.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="expectorantes">
+        <div class="med-num">6</div>
+        <div class="med-text">
+          <h4>🌬️ Expectorantes</h4>
+          <p>Medicamentos em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antialérgicos bilastina dexclorfeniramina loratadina desloratadina hidroxizina alergia">
+        <div class="med-num">7</div>
+        <div class="med-text">
+          <h4>🌸 Antialérgicos</h4>
+          <p>Bilastina, dexclorfeniramina, loratadina, desloratadina, hidroxizina.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antiparasitários albendazol parasita verme">
+        <div class="med-num">8</div>
+        <div class="med-text">
+          <h4>🦠 Antiparasitários</h4>
+          <p>Albendazol.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="protetores gástricos omeprazol lansoprazol esomeprazol pantoprazol estômago">
+        <div class="med-num">9</div>
+        <div class="med-text">
+          <h4>🫃 Protetores Gástricos</h4>
+          <p>Omeprazol, lansoprazol, esomeprazol, pantoprazol.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antieméticos metoclopramida ondansetrona meclozina dimenidrinato enjoo náusea">
+        <div class="med-num">10</div>
+        <div class="med-text">
+          <h4>🤢 Antieméticos</h4>
+          <p>Metoclopramida, ondansetrona, meclozina, dimenidrinato.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antifúngicos orais fluconazol cetoconazol griseofulvina terbinafina fungo">
+        <div class="med-num">11</div>
+        <div class="med-text">
+          <h4>🧴 Antifúngicos Orais</h4>
+          <p>Fluconazol, cetoconazol, griseofulvina, terbinafina.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antifúngicos tópicos miconazol fungo creme">
+        <div class="med-num">12</div>
+        <div class="med-text">
+          <h4>🧼 Antifúngicos Tópicos</h4>
+          <p>Cetoconazol, fluconazol, miconazol puros ou associados.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="assadura óxido zinco nistatina dexpanthenol petrolato lanolina bebê">
+        <div class="med-num">13</div>
+        <div class="med-text">
+          <h4>👶 Para Assadura</h4>
+          <p>Óxido de zinco, nistatina, dexpanthenol, petrolato, lanolina.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="escabiose pediculose permetrina sarna piolho">
+        <div class="med-num">14</div>
+        <div class="med-text">
+          <h4>🦟 Escabiose e Pediculose</h4>
+          <p>Permetrina solução.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="antiespasmódicos escopolamina cólica espasmo">
+        <div class="med-num">15</div>
+        <div class="med-text">
+          <h4>💊 Antiespasmódicos</h4>
+          <p>Escopolamina.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="suplementos alimentares vitamina mineral">
+        <div class="med-num">16</div>
+        <div class="med-text">
+          <h4>🍎 Suplementos Alimentares</h4>
+          <p>Em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="polivitamínicos vitamina multi complexo">
+        <div class="med-num">17</div>
+        <div class="med-text">
+          <h4>💪 Polivitamínicos</h4>
+          <p>Em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="zinco compostos mineral">
+        <div class="med-num">18</div>
+        <div class="med-text">
+          <h4>🧪 Compostos de Zinco</h4>
+          <p>Em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="anti-anêmicos anemia ferro hemoglobina">
+        <div class="med-num">19</div>
+        <div class="med-text">
+          <h4>🩸 Anti-anêmicos</h4>
+          <p>Em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="reidratante oral sais desidratação água">
+        <div class="med-num">20</div>
+        <div class="med-text">
+          <h4>💧 Reidratante Oral</h4>
+          <p>Sais para reidratação oral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="flora intestinal probióticos intestino lactobacillus">
+        <div class="med-num">21</div>
+        <div class="med-text">
+          <h4>🦠 Flora Intestinal</h4>
+          <p>Probióticos em geral.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="cremes vaginais antifúngicos antibióticos lubrificantes vaginal">
+        <div class="med-num">22</div>
+        <div class="med-text">
+          <h4>🌸 Cremes Vaginais</h4>
+          <p>Com antifúngicos, antibióticos e lubrificantes.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="anti-hipertensivos losartana anlodipino pressão hipertensão">
+        <div class="med-num">23</div>
+        <div class="med-text">
+          <h4>❤️ Anti-hipertensivos</h4>
+          <p>Losartana, anlodipino.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="diuréticos hidroclorotiazida diurético retenção">
+        <div class="med-num">24</div>
+        <div class="med-text">
+          <h4>💦 Diuréticos</h4>
+          <p>Hidroclorotiazida.</p>
+        </div>
+      </div>
+
+      <div class="med-item" data-name="vertigem flunarizina meclozina betalistina tontura">
+        <div class="med-num">25</div>
+        <div class="med-text">
+          <h4>🌀 Para Vertigem</h4>
+          <p>Flunarizina, meclozina, betalistina.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- UBUNTU QUOTE -->
+<section class="ubuntu-section">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold);justify-content:center;">✦ Filosofia Ubuntu</div>
+    <h2 class="section-title" style="text-align:center;">"Eu sou porque nós somos"</h2>
+    <blockquote>
+      Ubuntu é uma filosofia africana baseada em humanidade, solidariedade, respeito e cuidado coletivo.
+    </blockquote>
+    <p>
+      Cada doação enviada ao Malawi representa esperança, dignidade e cuidado para pessoas que enfrentam situações extremas de vulnerabilidade social.
+    </p>
+  </div>
+</section>
+
+<!-- DONATION -->
+<section class="donation" id="doacao">
+  <div class="container">
+    <div class="donation-inner">
+
+      <div class="donation-title-area">
+        <div class="section-label" style="justify-content:center;">✦ Faça sua parte</div>
+        <h2 class="section-title" style="color:var(--purple);">Como Ajudar</h2>
+        <p style="color:var(--text-muted);font-size:17px;">Você pode doar medicamentos, suplementos ou realizar uma contribuição financeira.</p>
+      </div>
+
+      <div class="donation-grid">
+
+        <!-- Izabel — WhatsApp -->
+        <div class="contact-box">
+          <div class="contact-label">📦 Retirada de doações</div>
+          <h3>Entre em contato</h3>
+          <div class="contact-name">Izabel</div>
+          <div class="contact-phone-display">(15) 99601-6655</div>
+          <a
+            href="https://wa.me/5515996016655?text=Ol%C3%A1%20Izabel!%20Gostaria%20de%20ajudar%20com%20a%20doa%C3%A7%C3%A3o%20de%20medicamentos%20para%20o%20Projeto%20Na%C3%A7%C3%A3o%20Ubuntu%20Malawi.%20Como%20posso%20proceder%3F"
+            target="_blank"
+            class="btn-whatsapp"
+          >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 17.563A9.932 9.932 0 0 1 12 21.9c-1.686 0-3.278-.42-4.676-1.162l-3.354.879.9-3.278A9.908 9.908 0 0 1 2.1 12C2.1 6.537 6.537 2.1 12 2.1c5.462 0 9.9 4.437 9.9 9.9 0 2.633-1.025 5.024-2.691 6.78l-.647-.917z"/>
+            </svg>
+            Falar com Izabel no WhatsApp
+          </a>
+          <p class="contact-note">As doações poderão ser retiradas diretamente no consultório. Aceitamos amostras de laboratórios.</p>
+        </div>
+
+        <!-- Ricardo — PIX -->
+        <div class="pix-box">
+          <div class="contact-label" style="color:rgba(255,255,255,0.5);">💸 Contribuição financeira</div>
+          <h3>Doação via PIX</h3>
+          <div class="pix-recipient">Ricardo Alves Marujo</div>
+
+          <div class="pix-key-area">
+            <div class="pix-key-label">Chave PIX (CPF)</div>
+            <div class="pix-key-value" id="pixKey">06045503830</div>
+          </div>
+
+          <button class="btn-copy" id="copyBtn" onclick="copyPix()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copyText">Copiar Chave PIX</span>
+          </button>
+          <p class="pix-help">Após copiar, abra seu banco e cole na área PIX.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Cada medicamento<br>pode salvar vidas.</h2>
+    <p>Se não puder doar, compartilhe esta campanha. Sua ajuda pode alcançar quem mais precisa.</p>
+    <a
+      href="https://wa.me/?text=Conhe%C3%A7a%20o%20Projeto%20Na%C3%A7%C3%A3o%20Ubuntu%20Malawi%20e%20ajude%20a%20levar%20sa%C3%BAde%20para%20quem%20mais%20precisa!%20Acesse%3A%20"
+      target="_blank"
+      class="btn btn-white"
+    >
+      📤 Compartilhar Campanha
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">🌍 Nação Ubuntu Malawi</div>
+    <p>Projeto Voluntário de Assistência Humanitária</p>
+    <p>Caravana da Saúde 2026</p>
+    <p class="footer-quote">"Eu sou porque nós somos."</p>
+  </div>
+</footer>
+
+<script>
+function filterMeds(val) {
+  const q = val.toLowerCase().trim();
+  document.querySelectorAll('.med-item').forEach(el => {
+    const data = el.dataset.name || '';
+    const text = el.innerText.toLowerCase();
+    el.classList.toggle('hidden', q !== '' && !data.includes(q) && !text.includes(q));
+  });
+}
+
+function copyPix() {
+  const key = document.getElementById('pixKey').innerText;
+  navigator.clipboard.writeText(key).then(() => {
+    const btn = document.getElementById('copyBtn');
+    const txt = document.getElementById('copyText');
+    btn.classList.add('copied');
+    txt.textContent = '✓ Chave copiada!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      txt.textContent = 'Copiar Chave PIX';
+    }, 2500);
+  }).catch(() => {
+    // fallback
+    const el = document.createElement('textarea');
+    el.value = key;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    document.getElementById('copyText').textContent = '✓ Copiado!';
+    setTimeout(() => { document.getElementById('copyText').textContent = 'Copiar Chave PIX'; }, 2000);
+  });
+}
+
+// Smooth scroll offset for fixed nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const el = document.querySelector(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
